@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { Grid } from "semantic-ui-react";
 import TVShow from "./TVShow";
+import InfiniteScroll from "react-infinite-scroller";
+
 function TVShowList(props) {
+  const [data, setData] = useState([...props.shows]);
+  const [page, setPage] = useState(2);
   function mapAllShows() {
     if (!!props.searchTerm) {
       return props.shows.map((s) => {
@@ -17,7 +21,18 @@ function TVShowList(props) {
 
   return (
     <div className="TVShowList">
-      <Grid>{mapAllShows()}</Grid>
+      <InfiniteScroll
+        pageStart={0}
+        // loadMore={loading}
+        hasMore={true || false}
+        loader={
+          <div className="loader" key={0}>
+            Loading ...
+          </div>
+        }
+      >
+        <Grid>{mapAllShows()}</Grid>
+      </InfiniteScroll>
     </div>
   );
 }
