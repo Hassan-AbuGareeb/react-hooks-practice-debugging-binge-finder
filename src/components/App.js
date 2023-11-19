@@ -4,7 +4,6 @@ import Adapter from "../Adapter";
 import TVShowList from "./TVShowList";
 import Nav from "./Nav";
 import SelectedShowContainer from "./SelectedShowContainer";
-import { lazy, Suspense } from "react";
 
 function App() {
   const [shows, setShows] = useState([]);
