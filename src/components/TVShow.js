@@ -1,6 +1,8 @@
 import React from "react";
 
 function TVShow(props) {
+  // if (props.show !== undefined) {
+  console.log(props.show);
   function handleSelectShow() {
     props.selectShow(props.show);
   }
@@ -14,6 +16,7 @@ function TVShow(props) {
       />
     </div>
   );
+  // }
 }
 
 export default TVShow;

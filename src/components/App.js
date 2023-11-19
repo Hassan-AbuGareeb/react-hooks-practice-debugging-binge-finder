@@ -16,7 +16,7 @@ function App() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const showItems = await Adapter.getShows();
+      const showItems = await Adapter.getShows(1);
       setShows([...showItems]);
     };
     fetchData();
